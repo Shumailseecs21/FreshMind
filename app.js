@@ -2,6 +2,8 @@ const express=require("express");
 const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 
+const DB_URI=require("./db");
+
 const app=express();
 
 app.use((req,res,next)=>{
@@ -17,7 +19,7 @@ app.use(function(req,res,next){
 
 mongoose
     .connect(
-    "mongodb+srv://shumail:milo2002@cluster0.n7mu9qa.mongodb.net/"
+    DB_URI
 )
     .then((result) => {
         console.log("Connected successfully");

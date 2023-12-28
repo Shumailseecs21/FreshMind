@@ -2,7 +2,7 @@ const express=require("express");
 const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 
-const DB_URI=require("./db");
+const {DB_URI}=require("./db");
 
 const app=express();
 
@@ -18,9 +18,7 @@ app.use(function(req,res,next){
 });
 
 mongoose
-    .connect(
-    DB_URI
-)
+    .connect(DB_URI)
     .then((result) => {
         console.log("Connected successfully");
         app.listen(8080);

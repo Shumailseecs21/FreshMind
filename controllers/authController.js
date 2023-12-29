@@ -1,8 +1,30 @@
 const { validationResult } = require("express-validator");
-const brcypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { validationResult } = require('express-validator');
 
 const User = require("../models/userModel");
+
+exports.getLogin = (req, res, next) => {
+    let message = req.flash('error');
+    if (message.length > 0) {
+        message = message[0];
+    } else {
+        message = null;
+    }
+    res.render('auth/login', {
+        path: '/login',
+        pageTitle: 'Login',
+        errorMessage: message,
+        oldInput: {
+            email: '',
+            password: ''
+        },
+        validationErrors: []
+    });
+};
+
+
 
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
@@ -16,7 +38,7 @@ exports.signup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     const name = req.body.name;
-    brcypt
+    bcrypt
         .hash(password, 12)
         .then(hashedPassword => {
             const user = new User({
@@ -49,7 +71,7 @@ exports.login = (req, res, next) => {
                 throw error;
             }
             loadedUser=user;
-            return brcypt.compare(password,user.password)
+            return bcrypt.compare(password,user.password)
         })
         .then(isEqual=>{
             if(!isEqual){

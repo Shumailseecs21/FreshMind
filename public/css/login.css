@@ -1,0 +1,141 @@
+:root{
+    --button-col:#800000;
+    --button-bg-col:#FFF8C9;
+    --button-bg-col-hover:#fff8c9ac;
+    --section-bg-col-1:#DFCCFB;
+    --section-col-1:#F6F4EB;
+    --section-bg-col-2:#F6F4EB;
+    --section-col-2:#DFCCFB;
+    --font-heading:'Alegreya Sans SC', sans-serif;
+    --font-body:'Source Sans 3', sans-serif;
+    --heading-col:#800000;
+    --heading-text:#f74646;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--heading-text);
+    background-image: url('/images/auth.jpg'); /* Replace with your background image URL */
+    background-position: center;
+    background-attachment: fixed;
+    font-weight: bold;
+}
+
+header {
+    background-color: var(--section-bg-col-1);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-name a {
+    text-decoration: none;
+    color: var(--heading-col);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: var(--font-heading);
+}
+
+.navigation {
+    list-style-type: none;
+    display: flex;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Background color with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+.login-container h1 {
+    font-size: 36px;
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.login-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: 1px solid var(--button-bg-col);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
+
+}
+
+.login-button:hover {
+    border: 1px solid var(--button-col);
+    transition: border 0.3s;
+    background-color: var(--button-bg-col-hover);
+}
+
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .login-container h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding: 8px;
+        margin: 3px 0;
+    }
+
+    .login-button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .login-container {
+        width: 60%;
+    }
+}
+
+

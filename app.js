@@ -5,13 +5,16 @@ const flash=require("connect-flash");
 const csrf=require("csurf");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const path=require("path");
 
 const {DB_URI}=require("./db");
 const authRoutes=require("./routes/authRoutes");
+const indexRoutes=require("./routes/indexRoutes");
 
 const app=express();
 
 //session management and storing session data
+/*
 const store = new MongoDBStore({
     uri: DB_URI,
     collection: "sessions",
@@ -24,12 +27,16 @@ const store = new MongoDBStore({
 //     res.setHeader("Access-Control-Allow-Headers","Content-Type, Authorization");//any website * wildcard is used
 //     next();
 // });
-
+*/
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/images",express.static(path.join(__dirname, "images")));
 
+
+/*
 app.use(
     session({
         secret: "my secret",
@@ -65,8 +72,10 @@ app.use((req, res, next) => {
             next(new Error(err));
         });
 });
+*/
 
 app.use("/auth",authRoutes);
+app.use(indexRoutes);
 
 mongoose
     .connect(DB_URI)

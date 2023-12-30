@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Content - FreshMind</title>
-    <link rel="stylesheet" type="text/css" href="./styles/course_content.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="./styles/course_content.css">
 </head>
 <body>
-<header>
-    <nav class="navbar">
-        <div class="company-name">
-            <a href="./home.html">FreshMind</a>
-        </div>
-        <ul class="navigation">
-            <li><a href="./home.html">Home</a></li>
-            <li><a href="./online_res.html">Online Resources</a></li>
-            <li><a href="./book_session.html">Book A Session</a></li>
-            <li><a href="./contact.html">Contact Us</a></li>
-            <li><a href="./feedback.html">Feedback</a></li>
-        </ul>
-        <div class="auth-buttons">
-            <a href="signup.html" class="signup-button">Sign Up</a>
-            <a href="login.html" class="login-button">Login</a>
-        </div>
-    </nav>
-</header>
+<%- include('../includes/navigation.ejs') %>
 
 <section id="Chapter">
 
@@ -47,18 +23,5 @@
 
     </div>
 </section>
-<footer class="footer">
-    <div class="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or need support, feel free to contact us at <a href="mailto:info@mentalhealthsupport.com">info@mentalhealthsupport.com</a>.</p>
-    </div>
-    <div class="social-icons">
-        <a href="#" class="social-icon"><img src="./public/email.png" alt="Email"><p>Email</p></a>
-        <a href="#" class= "social-icon"><img src="./public/instagram.png" alt="Instagram"><p>Instagram</p></a>
-        <a href="#" class="social-icon"><img src="./public/facebook.png" alt="Facebook"><p>Facebook</p></a>
-        <a href="#" class="social-icon"><img src="./public/twitter.png" alt="Twitter"><p>Twitter</p></a>
-    </div>
-    <a href="contact.html" class="button">Contact Page</a>
-</footer>
-</body>
-</html>
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

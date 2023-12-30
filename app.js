@@ -10,6 +10,9 @@ const path=require("path");
 const {DB_URI}=require("./db");
 const authRoutes=require("./routes/authRoutes");
 const indexRoutes=require("./routes/indexRoutes");
+const adminRoutes=require("./routes/adminRoutes");
+const memberRoutes=require("./routes/memberRoutes");
+const doctorRoutes=require("./routes/doctorRoutes");
 
 const app=express();
 

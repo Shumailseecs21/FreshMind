@@ -1,3 +1,5 @@
+// course content for each course
+
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 

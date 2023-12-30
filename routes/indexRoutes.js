@@ -5,6 +5,14 @@ const router =express.Router();
 
 router.get("/",indexController.getIndex);
 
+router.get("/onlineresorces",indexController.getOnlineRes)
+
+router.get("/contact",indexController.getContact);
+
+router.get("/feedback",indexController.getFeedback);
+
+router.post("/feedback",indexController.postFeedback);
+
 module.exports = router;
 
 

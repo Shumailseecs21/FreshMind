@@ -1,12 +1,16 @@
-<%- include('../includes/head.ejs') %>    <link rel="stylesheet" href="/css/signup.css">
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/signup.css">
 
 </head>
 <body>
 <%- include('../includes/navigation.ejs') %>
 
 <div class="signup-container">
+    <p><% if (errorMessage) { %>
+    <div class="user-message user-message--error"><%= errorMessage %></div>
+    <% } %><br></p>
     <h1>Signup on FreshMind</h1>
-    <form id="signup-form">
+    <form id="signup-form" action="/auth/signup" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <label for="email">Email:</label>
@@ -20,9 +24,10 @@
             <option value="Doctor">Doctor</option>
         </select>
         <div class="submit-area">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button type="submit" class="signup-button">Signup</button>
-            <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </form>
+    <p>Already have an account? <a href="/auth/login">Login</a></p>
 </div>
 <%- include('../includes/end.ejs') %>

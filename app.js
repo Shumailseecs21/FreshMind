@@ -13,16 +13,19 @@ const indexRoutes=require("./routes/indexRoutes");
 const adminRoutes=require("./routes/adminRoutes");
 const memberRoutes=require("./routes/memberRoutes");
 const doctorRoutes=require("./routes/doctorRoutes");
+const errorController=require("./controllers/errorController");
+const User=require("./models/userModel");
 
 const app=express();
 
 //session management and storing session data
-/*
+
 const store = new MongoDBStore({
     uri: DB_URI,
     collection: "sessions",
 });
 
+const csrfProtection=csrf();
 
 // app.use((req,res,next)=>{
 //     res.setHeader("Access-Control-Allow-Origin","*");//any website * wildcard is used
@@ -30,7 +33,7 @@ const store = new MongoDBStore({
 //     res.setHeader("Access-Control-Allow-Headers","Content-Type, Authorization");//any website * wildcard is used
 //     next();
 // });
-*/
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
@@ -39,7 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/images",express.static(path.join(__dirname, "images")));
 
 
-/*
+
 app.use(
     session({
         secret: "my secret",
@@ -49,7 +52,7 @@ app.use(
     })
 );
 
-const csrfProtection=csrf();
+app.use(csrfProtection);
 app.use(flash());
 
 app.use((req, res, next) => {
@@ -58,27 +61,38 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
+app.use(async (req, res, next) =>{
     // throw new Error('Sync Dummy');
     if (!req.session.user) {
         return next();
     }
-    User.findById(req.session.user._id)
-        .then(user => {
-            if (!user) {
-                return next();
-            }
-            req.user = user;
-            next();
-        })
-        .catch(err => {
-            next(new Error(err));
-        });
+    try {
+        const sessionUser = await User.findById(req.session.user._id);
+        if (!sessionUser) {
+            return next();
+        }
+        req.user = sessionUser;
+        next();
+
+    }
+    catch(err){
+        res.render("404");
+    }
 });
-*/
 
 app.use("/auth",authRoutes);
+app.use("/admin",adminRoutes);
+app.use("/member",memberRoutes);
+app.use("/doctor",doctorRoutes);
 app.use(indexRoutes);
+
+// app.use((error, req, res, next) => {
+//     res.redirect("/auth/signup");
+//
+// });
+
+app.use("/errors/404",errorController.get404);
+app.get("/errors/500",errorController.get500);
 
 mongoose
     .connect(DB_URI)

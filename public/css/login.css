@@ -58,7 +58,7 @@ header {
 
 .login-container {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.9); /* Background color with transparency */
@@ -114,6 +114,20 @@ select{
     background-color: var(--button-bg-col-hover);
 }
 
+.user-message {
+    margin: auto;
+    border: 1px solid #4771fa;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: #b9c9ff;
+    text-align: center;
+}
+
+.user-message--error {
+    border-color: red;
+    background: rgb(255, 176, 176);
+    color: red;
+}
 
 @media (max-width: 768px) {
     .login-container {

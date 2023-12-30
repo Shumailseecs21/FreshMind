@@ -1,14 +1,14 @@
 <header>
     <nav class="navbar">
         <div class="company-name">
-            <a href="./home.html">FreshMind</a>
+            <a href="/">FreshMind</a>
         </div>
         <ul class="navigation">
-            <li><a href="./home.html">Home</a></li>
-            <li><a href="./online_res.html">Online Resources</a></li>
-            <li><a href="./book_session.html">Book A Session</a></li>
-            <li><a href="./contact.html">Contact Us</a></li>
-            <li><a href="./feedback.html">Feedback</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/onlineresorces">Online Resources</a></li>
+            <li><a href="/<%=  user.role === 'Admin' ? 'admin' : user.role === 'Doctor' ? 'doctor' : 'member' %>/book_session.html">Book A Session</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/feedback">Feedback</a></li>
         </ul>
         <div class="auth-buttons">
             <a href="/auth/signup" class="signup-button">Sign Up</a>

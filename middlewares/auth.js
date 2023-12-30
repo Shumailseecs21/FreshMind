@@ -1,25 +1,6 @@
-const jwt=require("jsonwebtoken");
-
-module.exports=(req,res,next)=>{
-    const authHeader=req.get("Authorization");
-    if(!authHeader){
-        const error=new Error("not authenticated");
-        error.statusCode=401;
-        throw error;
+module.exports = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/login');
     }
-    const token=authHeader.split(" ")[1];
-    let decodedToken;
-    try {
-        decodedToken=jwt.verify(token,"somesupersecret");
-    } catch (error) {
-        error.statusCode=500;
-        throw error;
-    }
-    if(!decodedToken){
-        const error=new Error("not authenticated");
-        error.statusCode=401;
-        throw error;
-    }
-    req.userId=decodedToken.userId;
     next();
 }

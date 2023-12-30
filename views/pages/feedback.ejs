@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - FreshMind</title>
+    <link rel="stylesheet" type="text/css" href="./styles/feedback.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="company-name">
+                <a href="./home.html">FreshMind</a>
+            </div>
+            <ul class="navigation">
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./online_res.html">Online Resources</a></li>
+                <li><a href="./book_session.html">Book A Session</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+                <li><a href="./feedback.html">Feedback</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="signup.html" class="signup-button">Sign Up</a>
+                <a href="login.html" class="login-button">Login</a>
+            </div>
+        </nav>
+    </header>
+    <div class="feedback-content">
+        <h1>Feedback</h1>
+        <p>Your feedback is important to us. Please share your thoughts and suggestions to help us improve our services.</p>
+        <form id="feedback-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need support, feel free to contact us at <a href="mailto:info@mentalhealthsupport.com">info@mentalhealthsupport.com</a>.</p>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><img src="../public/images/email.png" alt="Email"><p>Email</p></a>
+            <a href="#" class="social-icon"><img src="../public/images/instagram.png" alt="Instagram"><p>Instagram</p></a>
+            <a href="#" class="social-icon"><img src="../public/images/facebook.png" alt="Facebook"><p>Facebook</p></a>
+            <a href="#" class="social-icon"><img src="../public/images/twitter.png" alt="Twitter"><p>Twitter</p></a>
+        </div>
+        <a href="contact.html" class="button">Contact Page</a>
+    </footer>
+</body>
+</html>

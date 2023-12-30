@@ -1,0 +1,215 @@
+:root{
+    --button-col:#800000;
+    --button-bg-col:#FFF8C9;
+    --button-bg-col-hover:#fff8c9ac;
+    --section-bg-col-1:#DFCCFB;
+    --section-col-1:#F6F4EB;
+    --section-bg-col-2:#F6F4EB;
+    --section-col-2:#DFCCFB;
+    --font-heading:'Alegreya Sans SC', sans-serif;
+    --font-body:'Source Sans 3', sans-serif;
+    --heading-col:#800000;
+    --heading-text:#f74646;
+    --contact-bg-col:#c8c8c8;
+}   
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+/* Navbar Styles */
+header {
+    background-color: var(--section-bg-col-1);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-name a {
+    text-decoration: none;
+    color: var(--heading-col);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: var(--font-heading);
+}
+
+.navigation {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.signup-button, .login-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
+}
+
+.signup-button:hover, .login-button:hover {
+    background-color: var(--button-bg-col-hover);
+}
+
+.contact-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px 0px 40px 0px;
+    color: var(--heading-text);
+    border:3px solid var(--heading-col);
+    border-radius: 10px;
+}
+
+.contact-content h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+}
+
+.contact-content p {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-method {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--section-bg-col-2); /* Add your desired background color */
+}
+
+.contact-method img {
+    width: 50px; /* Set the desired image size */
+    height: 50px;
+}
+
+.contact-method h3 {
+    font-size: 24px;
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+}
+
+.method-info p {
+    font-size: 16px;
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-media h2{
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+    margin-bottom: 4%;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.social-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer {
+    background-color: var(--section-bg-col-1);
+    padding: 20px 0;
+    margin: 50px 0 0 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-name {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation li {
+        margin: 10px 0;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .signup-button, .login-button {
+        margin: 10px 0;
+    }
+
+    .contact-content {
+        padding: 20px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    .contact-method {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .social-media h2 {
+        margin-top: 20px;
+    }
+}

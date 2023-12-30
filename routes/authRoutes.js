@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/login",authController.getLogin);
 
 router.get("/signup",authController.getSignUp);
-/*
+
 router.post(
     "/signup",
     [
@@ -31,5 +31,5 @@ router.post(
 );
 
 router.post("/login", authController.login);
-*/
+
 module.exports = router;

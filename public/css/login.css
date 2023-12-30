@@ -89,6 +89,12 @@ input {
     margin: 5px 0;
 }
 
+select{
+    padding: 10px;
+    margin: 5px 0;
+    color: var(--heading-text);
+}
+
 .login-button {
     background-color: var(--button-bg-col);
     color: var(--button-col);

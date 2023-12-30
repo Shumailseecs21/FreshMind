@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - FreshMind</title>
-    <link rel="stylesheet" type="text/css" href="./styles/contact.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="./styles/contact.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="company-name">
-                <a href="./home.html">FreshMind</a>
-            </div>
-            <ul class="navigation">
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./online_res.html">Online Resources</a></li>
-                <li><a href="./book_session.html">Book A Session</a></li>
-                <li><a href="./contact.html">Contact Us</a></li>
-                <li><a href="./feedback.html">Feedback</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a href="signup.html" class="signup-button">Sign Up</a>
-                <a href="login.html" class="login-button">Login</a>
-        </nav>
-    </header>
+<%- include('../includes/navigation.ejs') %>
     <div class="contact-content">
         <h1>Contact Us</h1>
         <p>If you have any questions or need support, feel free to contact us. We are here to help you on your journey to better mental well-being. Reach out to us through the following channels:</p>
@@ -52,10 +29,5 @@
             <a href="#" class="social-icon contact-method"><img src="../public/images/twitter.png" alt="Twitter"><p>Like us on Twitter</p></a>
         </div>
     </div>
-    
-    <div class="footer">
 
-    </div>
-    
-</body>
-</html>
+<%- include('../includes/end.ejs') %>

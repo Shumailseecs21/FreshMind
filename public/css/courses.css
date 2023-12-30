@@ -1,0 +1,226 @@
+:root{
+    --button-col:#800000;
+    --button-bg-col:#FFF8C9;
+    --button-bg-col-hover:#fff8c9ac;
+    --section-bg-col-1:#DFCCFB;
+    --section-col-1:#F6F4EB;
+    --section-bg-col-2:#F6F4EB;
+    --section-col-2:#DFCCFB;
+    --font-heading:'Alegreya Sans SC', sans-serif;
+    --font-body:'Source Sans 3', sans-serif;
+    --heading-col:#800000;
+    --heading-text:#f74646;
+
+}   
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+
+/* Navbar Styles */
+header {
+    background-color: var(--section-bg-col-1);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-name a {
+    text-decoration: none;
+    color: var(--heading-col);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: var(--font-heading);
+}
+
+.navigation {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.signup-button, .login-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
+}
+
+.signup-button:hover, .login-button:hover {
+    background-color: var(--button-bg-col-hover);
+}
+
+.courses-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.course {
+    border: 2px solid var(--section-bg-col-1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+}
+
+.course h2 {
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+    font-size: 24px;
+}
+
+.course p {
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 15px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: var(--button-col);
+    height: 100%;
+}
+
+.start-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: var(--button-bg-col-hover);
+}
+
+.footer {
+    background-color: var(--section-bg-col-1);
+    text-align: center;
+    padding: 20px 0;
+    color: var(--heading-text);
+    font-weight: bold;
+    margin: 50px 0 0 0;
+}
+
+.contact h2 {
+    font-size: 24px;
+    font-family: var(--font-heading);
+    color: var(--heading-col);
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.social-icons img {
+    width: 5%;
+    height: 5%;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--button-bg-col);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid var(--button-bg-col);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    font-family: var(--font-heading);
+    color: var(--button-col);
+    
+}
+
+.button:hover {
+    border: 1px solid var(--button-col);
+    transition: border 0.3s;
+    background-color: var(--button-bg-col-hover);
+}
+
+
+@media (max-width: 768px) {
+    .courses-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .start-button {
+        font-size: 16px;
+    }
+
+    .social-icons img {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .course {
+        width: 40%;
+    }
+}
+

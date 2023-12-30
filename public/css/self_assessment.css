@@ -1,0 +1,211 @@
+:root{
+    --button-col:#800000;
+    --button-bg-col:#FFF8C9;
+    --button-bg-col-hover:#fff8c9ac;
+    --section-bg-col-1:#DFCCFB;
+    --section-col-1:#F6F4EB;
+    --section-bg-col-2:#F6F4EB;
+    --section-col-2:#DFCCFB;
+    --font-heading:'Alegreya Sans SC', sans-serif;
+    --font-body:'Source Sans 3', sans-serif;
+    --heading-col:#800000;
+    --heading-text:#f74646;
+
+}   
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+
+/* Navbar Styles */
+header {
+    background-color: var(--section-bg-col-1);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-name a {
+    text-decoration: none;
+    color: var(--heading-col);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: var(--font-heading);
+}
+
+.navigation {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.signup-button, .login-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
+}
+
+.signup-button:hover, .login-button:hover {
+    background-color: var(--button-bg-col-hover);
+}
+
+.self-assessment-container {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Background color with transparency */
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 36px;
+    color: var(--heading-col);
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+}
+
+#self-assessment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    margin: 5px 0;
+    color: var(--heading-text);
+}
+
+.footer {
+    background-color: var(--section-bg-col-1);
+    text-align: center;
+    padding: 20px 0;
+    color: var(--heading-text);
+    font-weight: bold;
+    margin: 50px 0 0 0;
+}
+
+.contact h2 {
+    font-size: 24px;
+    font-family: var(--font-heading);
+    color: var(--heading-col);
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.social-icons img {
+    width: 5%;
+    height: 5%;
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--button-bg-col);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid var(--button-bg-col);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    font-family: var(--font-heading);
+    color: var(--button-col);
+    
+}
+
+.button:hover {
+    border: 1px solid var(--button-col);
+    transition: border 0.3s;
+    background-color: var(--button-bg-col-hover);
+}
+
+
+@media (max-width: 768px) {
+    .self-assessment-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    select {
+        padding: 8px;
+        margin: 5px 0;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .self-assessment-container {
+        width: 80%;
+    }
+
+    select {
+        padding: 10px;
+    }
+}
+

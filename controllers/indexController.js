@@ -45,11 +45,19 @@ exports.postFeedback=async(req,res,next)=>{
 };
 
 exports.getOnlineRes=(req,res,next)=>{
-    let user=null;
-    if(req.session.user){
-        user=req.session.user;
-    }
     res.render("pages/online_res",{
         user:req.session.user
     });
+};
+
+exports.getBookSession=(req,res,next)=>{
+    res.redirect("/auth/login");
+};
+
+exports.getQuiz=(req,res,next)=>{
+    res.redirect("/auth/login");
+};
+
+exports.getCourses=(req,res,next)=>{
+    res.redirect("/auth/login");
 };

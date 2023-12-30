@@ -11,9 +11,15 @@
             <div class="description">
                 <h2>Self Assessment Quiz</h2>
                 <p>Assess your mental well-being with our quiz. Gain insights into your current state and take steps towards improvement.</p>
-                <a href="self_assessment.html" class="button">Take Quiz</a>
+                <% if(isAuthenticated){ %>
+                    <% if(!user) { %>
+                        <a href="/quiz" class="button">Take Quiz</a>
+                    <% }else{ %>
+                        <a class="button" href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/quiz">Take Quiz</a>
+                    <% } %>
+                <% } %>
             </div>
-            <img src="../public/images/self_assessment.jpg" alt="Quiz Image">
+            <img src="/images/self_assessment.jpg" alt="Quiz Image">
         </div>
     </section>
 
@@ -25,7 +31,7 @@
                 <p>Explore a wealth of reading materials and videos on various topics related to mental health and well-being.</p>
                 <a href="ref_materials.html" class="button">View Content</a>
             </div>
-            <img src="../public/images/read_content.jpg" alt="Reading and Video Image">
+            <img src="/images/read_content.jpg" alt="Reading and Video Image">
         </div>
     </section>
 
@@ -35,9 +41,15 @@
             <div class="description">
                 <h2>Courses</h2>
                 <p>Discover the importance of our courses in addressing and managing mental health challenges. Start now to enhance your well-being.</p>
-                <a href="courses.html" class="button">Start Now</a>
+                <% if(isAuthenticated){ %>
+                    <% if(!user) { %>
+                        <a href="courses.html" class="button">Start Now</a>
+                    <% }else{ %>
+                        <a class="button" href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/quiz">Start Now</a>
+                    <% } %>
+                <% } %>
             </div>
-            <img src="../public/images/courses.jpg" alt="Courses Image">
+            <img src="/images/courses.jpg" alt="Courses Image">
         </div>
     </section>
 <%- include('../includes/footer.ejs') %>

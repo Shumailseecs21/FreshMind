@@ -23,6 +23,13 @@
             <option value="Admin">Admin</option>
             <option value="Doctor">Doctor</option>
         </select>
+        <div id="certificationsField" style="display: none; text-align: left">
+            <label for="filenameinput" >File Name:</label>
+            <input type="text" name="filenameinput" id="filenameinput">
+            <br>
+            <label for="certifications">Certifications:</label>
+            <input type="file" id="certifications" name="certifications" accept=".pdf, .doc, .docx">
+        </div>
         <div class="submit-area">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button type="submit" class="signup-button">Signup</button>
@@ -30,4 +37,10 @@
     </form>
     <p>Already have an account? <a href="/auth/login">Login</a></p>
 </div>
+<script>
+    document.getElementById("role").addEventListener("change", function () {
+        var certificationsField = document.getElementById("certificationsField");
+        certificationsField.style.display = (this.value === "Doctor") ? "block" : "none";
+    });
+</script>
 <%- include('../includes/end.ejs') %>

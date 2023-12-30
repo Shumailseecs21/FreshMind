@@ -5,7 +5,13 @@ const router =express.Router();
 
 router.get("/",indexController.getIndex);
 
-router.get("/onlineresorces",indexController.getOnlineRes)
+router.get("/onlineresorces",indexController.getOnlineRes);
+
+router.get("/quiz",indexController.getQuiz);
+
+router.get("/courses",indexController.getCourses);
+
+router.get("/book_session",indexController.getBookSession);
 
 router.get("/contact",indexController.getContact);
 
@@ -77,4 +83,4 @@ online resources only reading content available
 
 all other redirect -> login
 
- */
+*/

@@ -3,16 +3,30 @@
         <div class="company-name">
             <a href="/">FreshMind</a>
         </div>
+
         <ul class="navigation">
             <li><a href="/">Home</a></li>
             <li><a href="/onlineresorces">Online Resources</a></li>
-            <li><a href="/<%=  user.role === 'Admin' ? 'admin' : user.role === 'Doctor' ? 'doctor' : 'member' %>/book_session.html">Book A Session</a></li>
+            <% if(isAuthenticated){ %>
+            <% if(!user) { %>
+            <li><a href="/book_session">Book A Session</a></li>
+            <% }else{ %>
+            <li><a href="/<%=  user.role === 'Admin' ? 'admin' : user.role === 'Doctor' ? 'doctor' : 'member' %>/book_session">Book A Session</a></li>
+            <% } %>
+            <% } %>
             <li><a href="/contact">Contact Us</a></li>
             <li><a href="/feedback">Feedback</a></li>
         </ul>
         <div class="auth-buttons">
-            <a href="/auth/signup" class="signup-button">Sign Up</a>
-            <a href="/auth/login" class="login-button">Login</a>
+            <% if (!isAuthenticated) { %>
+                <a href="/auth/signup" class="signup-button">Sign Up</a>
+                <a href="/auth/login" class="login-button">Login</a>
+            <% } else { %>
+                <form action="/auth/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            <% } %>
         </div>
     </nav>
 </header>

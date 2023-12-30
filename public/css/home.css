@@ -100,7 +100,7 @@ header {
     width: 80%;
     height: 80%;
     object-fit: cover;
-    filter: blur(6px); /* Apply initial blur */
+    filter: blur(11px); /* Apply initial blur */
     transition: filter 0.5s; /* Add a transition effect for blur */
 }
 
@@ -111,7 +111,11 @@ header {
 }
 
 .hero h1 {
-    font-size: 48px; /* Larger font size */
+    font-size: 52px; /* Larger font size */
+    font-family: var(--font-heading);
+}
+.hero p {
+    font-size: 20px;
     font-family: var(--font-heading);
 }
 

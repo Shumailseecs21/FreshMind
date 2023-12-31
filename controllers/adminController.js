@@ -4,6 +4,8 @@ const path=require("path");
 const User = require('../models/userModel');
 const Course = require('../models/courseModel');
 const DoctorSession = require('../models/doctorSessionModel');
+const CourseContent = require('../models/courseContentModel');
+const {ObjectId} = require("mongodb");
 
 exports.getDashboard = async (req, res, next) => {
     try {
@@ -81,13 +83,21 @@ exports.postCourses = async (req, res) => {
 };
 
 exports.getCourseContent = async (req, res) => {
+    const courseId = req.params.courseId;
+
     try {
-        // Fetch all sessions
-        const sessions = await DoctorSession.find();
-        res.render('admin/sessions', { sessions });
+        // Find the course by ID and populate the courseContent array
+        const course = await Course.findById(courseId).populate('courseContent');
+
+        if (!course) {
+            return res.status(404).send('Course not found');
+        }
+
+        // Render the course content page with the retrieved course data
+        res.render('pages/courseContent', { course,user:req.user,courseContent:course.courseContent });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+
     }
 };
 

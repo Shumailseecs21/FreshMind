@@ -11,6 +11,18 @@ const doctorSessionSchema=new Schema({
     shift:{
         type:String,
         required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    picture:{
+        path:String,
+    },
+    doctorId:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
+        required:true
     }
 });
 

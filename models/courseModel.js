@@ -9,6 +9,14 @@ const courseSchema=new Schema({
         type:String,
         required:true
     },
+    range:{
+        type:Number,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
     courseContent:[{
         courseContentId:{
             type:Schema.Types.ObjectId,

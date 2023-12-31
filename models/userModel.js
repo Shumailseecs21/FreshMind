@@ -34,23 +34,21 @@ const userSchema=new Schema({
     },
     courses: [
         {
-            docSessionId: {
-                type: Schema.Types.ObjectId,
-                ref: 'Course',
-                required: true
-            }
+
+            type: Schema.Types.ObjectId,
+            ref: 'Course',
         }
     ],
     docSessions: [
         {
-            docSessionId:{
-                type: Schema.Types.ObjectId,
-                ref: 'DoctorSession',
-                required:true
-            }
+            type: Schema.Types.ObjectId,
+            ref: 'DoctorSession',
         }
     ],
-    certifications:certificationSchema
+    certifications:certificationSchema,
+    bio:{
+        type:String
+    }
 });
 
 module.exports=mongoose.model("User",userSchema);

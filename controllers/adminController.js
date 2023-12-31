@@ -1,4 +1,6 @@
 // adminController.js
+const path=require("path");
+
 const User = require('../models/userModel');
 const Course = require('../models/courseModel');
 const DoctorSession = require('../models/doctorSessionModel');
@@ -13,7 +15,10 @@ exports.getDashboard = async (req, res, next) => {
         const sessions = await DoctorSession.find();
         const allMembers = users.filter(user => user.role === 'Member');
         const allDoctors = users.filter(user => user.role === 'Doctor');
-        res.render('pages/dashboard', { user:req.user,users, courses, sessions ,allMembers,allDoctors,allCourses:courses,allSessions:sessions});
+        const absolutePath = path.resolve(__dirname,"../").replaceAll('\\','/');
+        console.log(absolutePath);
+        res.render('pages/dashboard', { absolutePath:absolutePath,user:req.user,users, courses, sessions ,allMembers,allDoctors,allCourses:courses,allSessions:sessions});
+
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

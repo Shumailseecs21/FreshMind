@@ -4,38 +4,21 @@
 <body>
 <%- include('../includes/navigation.ejs') %>
 
-    <div class="courses-container">
+<div class="courses-container">
+    <% courses.forEach(course => { %>
         <div class="course">
-            <h2>Stress</h2>
-            <p>Feeling stressed out? Learn how to manage stress effectively with our course. We are here to help you regain your peace of mind.</p>
+            <h2><%= course.name %></h2>
+            <p><%= course.description %></p>
             <div class="progress-bar">
-                <div class="progress" style="width: 70%;"></div>
+                <div class="progress" style="width: <%= course.range %>%;"></div>
             </div>
-            <a href="online_res.html">
-                <button class="start-button">Start</button>
-            </a>
+            <p>Range: <%= course.range %>%</p>
+            <a href="/<%= user.role.toLowerCase() %>/course_content/<%= course._id %>" class="button">Course Content</a>
         </div>
-
-        <div class="course">
-            <h2>Depression</h2>
-            <p>Dealing with depression can be tough. Join our course and work towards a brighter and happier future.</p>
-            <div class="progress-bar">
-                <div class="progress" style="width: 70%;"></div>
-            </div>
-            <a href="online_res.html">
-                <button class="start-button">Start</button>
-            </a>        </div>
-
-        <div class="course">
-            <h2>Anxiety</h2>
-            <p>Anxiety can affect your daily life. Our course is designed to help you reduce anxiety and improve your well-being.</p>
-            <div class="progress-bar">
-                <div class="progress" style="width: 70%;"></div>
-            </div>
-            <a href="online_res.html">
-                <button class="start-button">Start</button>
-            </a>        </div>
-    </div>
+    <% }); %>
+</div>
 
 <%- include('../includes/footer.ejs') %>
 <%- include('../includes/end.ejs') %>
+</body>
+</html>

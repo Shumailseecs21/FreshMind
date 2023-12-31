@@ -6,7 +6,7 @@
 
     <div class="self-assessment-container">
         <h1>Psychological Self-Assessment</h1>
-        <form id="self-assessment-form">
+        <form id="self-assessment-form" action="/<%= user.role.toLowerCase() %>/quiz" method="post">
             <div class="question">
                 <p>Question 1: How often do you feel nervous or anxious?</p>
                 <select name="question1">
@@ -74,12 +74,13 @@
                     <option value="always">Always</option>
                 </select>
             </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div class="submit-button">
+<!--                <a href="/<%=// user.role.toLowerCase() %>/self_assessment">-->
+                    <button class="button" type="submit">Submit</button>
+<!--                </a>-->
+            </div>
         </form>
-    </div>
-    <div class="submit-button">
-        <a href="online_res.html">
-            <button class="button" type="submit">Submit</button>
-        </a>
     </div>
 <%- include('../includes/footer.ejs') %>
 <%- include('../includes/end.ejs') %>

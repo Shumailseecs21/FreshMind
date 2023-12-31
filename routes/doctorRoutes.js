@@ -1,14 +1,14 @@
 const express=require("express");
 const doctorController=require("../controllers/doctorController");
+const {getSession, postSession} = require("../controllers/doctorController");
 
 const router =express.Router();
 
 router.get("/dashboard",doctorController.getDashboard);
 
-router.get("/sessions");
+router.get("/sessions",doctorController.getSession);
 
-router.post("/sessions/:sessionId");
+router.post("/sessions",doctorController.postSession);
 
-router.post("/certifications");
 
 module.exports = router;

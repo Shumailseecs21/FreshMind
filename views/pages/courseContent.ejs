@@ -5,23 +5,62 @@
 <%- include('../includes/navigation.ejs') %>
 
 <section id="Chapter">
+    <h1 class="mainHeading"><%= course.name %></h1>
+    <h2><%= course.description %></h2>
+    <p><%= courseContent.length %> Chapters</p>
 
-    <h1 class="mainHeading">Stress</h1>
-    <h2>Introduction to Course.</h2>
-    <p>Feeling stressed out? Learn how to manage stress effectively with our course. We are here to help you regain your peace of mind.</p>
     <div class="container1">
-        <div>
-            <h1> Chapter 1</h1>
-            <ul>
-                <li><img src="/images/book.png" alt=""><a href=""> Reading Material</a></li>
-                <li><img src="/images/video.png" alt=""><a href=""> Video</a></li>
-                <li><img src="/images/quiz.png" alt=""><a href=""> Quiz</a></li>
-            </ul>
+        <% courseContent.forEach((chapter, index) => { %>
+            <div>
+                <h1>Chapter <%= index + 1 %></h1>
+                <ul>
+                    <% chapter.content.forEach(contentItem => { %>
+                        <li>
+                            <input type="checkbox" id="<%= contentItem.name + index %>" name="<%= contentItem.name + index %>" />
+                            <label for="<%= contentItem.name + index %>">
+                                <img src="/images/<%= contentItem.type %>.png" alt="">
+                                <a href="<%= contentItem.href %>"><%= contentItem.name %></a>
+                            </label>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% }); %>
 
+        <div class="progress-bar">
+            <div class="progress" style="width: <%= calculateProgress(courseContent) %>;"></div>
         </div>
-
-
     </div>
 </section>
+
 <%- include('../includes/footer.ejs') %>
+<script>
+    // Assuming courseContent is an array of chapters, each containing an array of content items
+    function calculateProgress(courseContent) {
+        let totalContentItems = 0;
+        let completedContentItems = 0;
+
+        // Iterate through chapters and content items to count total and completed items
+        courseContent.forEach(chapter => {
+            totalContentItems += chapter.content.length;
+            chapter.content.forEach(contentItem => {
+                const checkboxId = contentItem.name + chapterIndex; // You need to determine the chapter index
+                const checkbox = document.getElementById(checkboxId);
+
+                if (checkbox && checkbox.checked) {
+                    completedContentItems += 1;
+                }
+            });
+        });
+
+        // Calculate the progress ratio
+        const progressRatio = totalContentItems === 0 ? 0 : completedContentItems / totalContentItems;
+
+        // Convert ratio to percentage and return
+        const progressPercentage = Math.round(progressRatio * 100);
+        return `${progressPercentage}%`;
+    }
+
+</script>
 <%- include('../includes/end.ejs') %>
+

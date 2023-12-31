@@ -15,8 +15,8 @@ router.get("/courses");
 
 router.get("/courses/:courseId");
 
-router.get("/quiz");
+router.get("/quiz",memberController.getQuiz);
 
-router.post("/quiz");
+router.post("/quiz",memberController.postQuiz);
 
 module.exports = router;

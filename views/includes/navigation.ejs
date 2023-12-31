@@ -10,12 +10,14 @@
             <% }else{ %>
                 <li><a href="/">Home</a></li>
             <% } %>
-            <li><a href="/onlineresorces">Online Resources</a></li>
             <% if(isAuthenticated){ %>
+            <% if(user.role!=="Doctor"){ %>
+            <li><a href="/onlineresorces">Online Resources</a></li>
+            <% } %>
             <% if(!user) { %>
-            <li><a href="/book_session">Session</a></li>
+            <li><a href="/<%= user.role.toLowerCase() %>/sessions">Session</a></li>
             <% }else{ %>
-            <li><a href="/<%=  user.role === 'Admin' ? 'admin' : user.role === 'Doctor' ? 'doctor' : 'member' %>/book_session">Book A Session</a></li>
+            <li><a href="/<%=  user.role === 'Admin' ? 'admin' : user.role === 'Doctor' ? 'doctor' : 'member' %>/sessions">Session</a></li>
             <% } %>
             <% } %>
             <li><a href="/contact">Contact Us</a></li>

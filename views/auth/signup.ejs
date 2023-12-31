@@ -10,7 +10,7 @@
     <div class="user-message user-message--error"><%= errorMessage %></div>
     <% } %><br></p>
     <h1>Signup on FreshMind</h1>
-    <form id="signup-form" action="/auth/signup" method="post">
+    <form id="signup-form" action="/auth/signup" method="post" enctype="multipart/form-data">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <label for="email">Email:</label>

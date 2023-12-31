@@ -7,6 +7,7 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const path=require("path");
 const multer=require("multer");
+const { v4: uuidv4 } = require('uuid');
 
 const {DB_URI}=require("./db");
 const authRoutes=require("./routes/authRoutes");
@@ -33,7 +34,9 @@ const fileStorage = multer.diskStorage({
         cb(null, "certificates");
     },
     filename: (req, file, cb) => {
-        cb(null, new Date().toISOString().replace(/:/g, '-')+ "_" +file.originalname);
+        console.log("ok go");
+        cb(null, uuidv4()+ "_" +file.originalname);
+        // cb(null, new Date().toISOString().replace(/:/g, '-')+ "#" +file.originalname);
     },
 });
 
@@ -60,9 +63,11 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+console.log("okkk");
 app.use(
-    multer({storage:fileStorage,fileFilter:fileFilter}).single("image")
+    multer({storage:fileStorage}).single("certifications")
 );
+console.log("okkk");
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images",express.static(path.join(__dirname, "images")));
 

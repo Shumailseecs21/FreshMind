@@ -1,0 +1,90 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+
+<div class="dashboard">
+    <h1>Welcome, <%= user.username %>!</h1>
+    <p>Email: <%= user.email %></p>
+    <p>Role: <%= user.role %></p>
+
+    <% if (user.role === 'Doctor') { %>
+        <div class="doctor-details">
+            <h2>Your Sessions</h2>
+            <% user.docSessions.forEach(session => { %>
+                <p>Session Name: <%= session.name %></p>
+                <p>Shift: <%= session.shift %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/doctor/sessions" class="button">Manage Sessions</a>
+        </div>
+        <div class="doctor-details">
+            <h2>Your Certifications</h2>
+            <% user.certifications.forEach(certification => { %>
+                <p>Certification Name: <%= certification.name %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/doctor/certifications" class="button">Manage Certifications</a>
+        </div>
+    <% } else if (user.role === 'Member') { %>
+        <div class="member-details">
+            <h2>Your Booked Sessions</h2>
+            <% user.docSessions.forEach(session => { %>
+                <p>Session Name: <%= session.name %></p>
+                <p>Shift: <%= session.shift %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/member/book_session" class="button">Book a Session</a>
+        </div>
+        <div class="member-details">
+            <h2>Your Enrolled Courses</h2>
+            <% user.courses.forEach(course => { %>
+                <p>Course Name: <%= course.name %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/member/courses" class="button">View Courses</a>
+        </div>
+    <% } else if (user.role === 'Admin') { %>
+        <div class="admin-details">
+            <h2>All Doctors</h2>
+            <% allDoctors.forEach(doctor => { %>
+                <p>Doctor Name: <%= doctor.username %></p>
+                <p>Email: <%= doctor.email %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/admin/members" class="button">Manage Doctors</a>
+        </div>
+        <div class="admin-details">
+            <h2>All Members</h2>
+            <% allMembers.forEach(member => { %>
+                <p>Member Name: <%= member.username %></p>
+                <p>Email: <%= member.email %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/admin/members" class="button">Manage Members</a>
+        </div>
+        <div class="admin-details">
+            <h2>All Courses</h2>
+            <% allCourses.forEach(course => { %>
+                <p>Course Name: <%= course.name %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/admin/courses" class="button">Manage Courses</a>
+        </div>
+        <div class="admin-details">
+            <h2>All Sessions</h2>
+            <% allSessions.forEach(session => { %>
+                <p>Session Name: <%= session.name %></p>
+                <p>Shift: <%= session.shift %></p>
+                <!-- Add more details as needed -->
+            <% }); %>
+            <a href="/admin/sessions" class="button">Manage Sessions</a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>
+</body>
+</html>

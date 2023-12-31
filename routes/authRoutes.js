@@ -15,13 +15,14 @@ router.post(
     [
         body("email")
             .isEmail()
-            .withMessage("Please enter a valid email")
-            .custom(async (value, { req }) => {
-                const userDoc= User.findOne({ email: value });
-                if (userDoc) {
-                    return Promise.reject("Email already exists");
-                }
-            })
+            // .withMessage("Please enter a valid email")
+            // .custom(async (value, { req }) => {
+            //     const userDoc= User.findOne({ email: value });
+            //     console.log(userDoc);
+            //     if (userDoc) {
+            //         return Promise.reject("Email already exists");
+            //     }
+            // })
             .normalizeEmail(),
         body("password").trim().isLength({ min: 8 }),
         body("username").trim().not().isEmpty(),

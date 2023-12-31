@@ -3,7 +3,7 @@ const adminController=require("../controllers/adminController");
 
 const router =express.Router();
 
-router.get("/dashboard");
+router.get("/dashboard",adminController.getDashboard);
 
 router.get("/courses");
 

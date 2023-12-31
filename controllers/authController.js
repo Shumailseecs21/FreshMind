@@ -1,4 +1,6 @@
 const { validationResult } = require("express-validator");
+const { MongoClient,ObjectId } = require('mongodb');
+const mongoose=require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -41,6 +43,19 @@ exports.signup = (req, res, next) => {
     const password = req.body.password;
     const username = req.body.username;
     const role=req.body.role;
+    const filename=req.body.filenameinput;
+    if(req.file){
+        console.log(req.file);
+    }
+    if (!req.file) {
+        return res.status(422).render('auth/signup', {
+            errorMessage: 'Please upload a certification file.',
+            validationErrors: []
+        });
+    }
+    const doc = req.file;
+    const path = doc.path.replace("\\" ,"/");
+
     bcrypt
         .hash(password, 12)
         .then(hashedPassword => {
@@ -49,6 +64,10 @@ exports.signup = (req, res, next) => {
                 password: hashedPassword,
                 username: username,
                 role:role,
+                certifications: {
+                    name: filename,
+                    path:path
+                }
             });
             return user.save();
         })
@@ -107,9 +126,13 @@ exports.login = async(req, res, next) => {
     }
 };
 
-exports.logout = (req, res, next) => {
-    req.session.destroy(err => {
-        console.log(err);
-    });
-    res.redirect('/');
+exports.logout = async (req, res, next) => {
+
+        // Destroy the session
+        req.session.destroy(err => {
+            if (err) {
+                console.error('Error destroying session:', err);
+            }
+            res.redirect('/');
+        });
 };

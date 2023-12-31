@@ -1,0 +1,144 @@
+:root{
+    --button-col:#800000;
+    --button-bg-col:#FFF8C9;
+    --button-bg-col-hover:#fff8c9ac;
+    --section-bg-col-1:#DFCCFB;
+    --section-col-1:#F6F4EB;
+    --section-bg-col-2:#F6F4EB;
+    --section-col-2:#DFCCFB;
+    --font-heading:'Alegreya Sans SC', sans-serif;
+    --font-body:'Source Sans 3', sans-serif;
+    --heading-col:#800000;
+    --heading-text:#f74646;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--heading-text);
+}
+/* Navbar Styles */
+header {
+    background-color: var(--section-bg-col-1);
+
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-name a {
+    text-decoration: none;
+    color: var(--heading-col);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: var(--font-heading);
+}
+
+.navigation {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--heading-text);
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 28px;
+    color: #800000;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.member-details, .doctor-details, .admin-details {
+    margin-top: 20px;
+}
+
+.admin-details h2, .doctor-details h2, .member-details h2 {
+    font-size: 24px;
+    color: #800000;
+    margin-bottom: 10px;
+}
+
+.admin-details p, .doctor-details p, .member-details p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #800000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #5a0000;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .admin-details h2, .doctor-details h2, .member-details h2 {
+        font-size: 20px;
+    }
+
+    p, .admin-details p, .doctor-details p, .member-details p {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}

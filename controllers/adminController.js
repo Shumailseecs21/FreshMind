@@ -25,18 +25,62 @@ exports.getDashboard = async (req, res, next) => {
     }
 };
 
-exports.adminCourses = async (req, res) => {
+exports.getCourses = async (req, res) => {
     try {
         // Fetch all courses
         const courses = await Course.find();
-        res.render('admin/courses', { courses });
+        res.render('pages/courses', { courses ,user:req.user});
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
     }
 };
 
-exports.adminSessions = async (req, res) => {
+exports.postCourses = async (req, res) => {
+    try {
+        const { name, description, range } = req.body;
+
+        // Create a new course
+        const newCourse = await Course.create({
+            name,
+            description,
+            range,
+        });
+
+        // Get the user ID from the session or wherever it's stored
+        const userId = req.user._id; // Replace with your actual user ID retrieval logic
+
+        // Find the user and push the new course to the courses array
+        const user = await User.findById(userId);
+        user.courses.push(newCourse._id);
+
+        // Save the updated user with the new course
+        await user.save();
+
+        try {
+            // Fetch all users
+            const users = await User.find();
+            // Fetch all courses
+            const courses = await Course.find();
+            // Fetch all sessions
+            const sessions = await DoctorSession.find();
+            const allMembers = users.filter(user => user.role === 'Member');
+            const allDoctors = users.filter(user => user.role === 'Doctor');
+
+            console.log(absolutePath);
+            res.render('pages/dashboard', {user:req.user,users, courses, sessions ,allMembers,allDoctors,allCourses:courses,allSessions:sessions});
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Internal Server Error');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+exports.getCourseContent = async (req, res) => {
     try {
         // Fetch all sessions
         const sessions = await DoctorSession.find();

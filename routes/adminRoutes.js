@@ -5,11 +5,11 @@ const router =express.Router();
 
 router.get("/dashboard",adminController.getDashboard);
 
-router.get("/courses");
+router.get("/courses",adminController.getCourses);
 
-router.get("/courses/:courseId");
+router.post("/courses/",adminController.postCourses);
 
-router.post("/courses/:courseId");
+router.get("/courses/:courseId",adminController.getCourseContent);
 
 router.get("/sessions");
 

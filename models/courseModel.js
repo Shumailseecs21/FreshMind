@@ -18,11 +18,9 @@ const courseSchema=new Schema({
         required:true
     },
     courseContent:[{
-        courseContentId:{
-            type:Schema.Types.ObjectId,
-            ref:"CourseContent",
-            required:true
-        }
+        type:Schema.Types.ObjectId,
+        ref:"CourseContent",
+        required:true
     }]
 });
 

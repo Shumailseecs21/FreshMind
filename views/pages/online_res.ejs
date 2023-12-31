@@ -43,9 +43,9 @@
                 <p>Discover the importance of our courses in addressing and managing mental health challenges. Start now to enhance your well-being.</p>
                 <% if(isAuthenticated){ %>
                     <% if(!user) { %>
-                        <a href="courses.html" class="button">Start Now</a>
+                        <a href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/courses" class="button">Start Now</a>
                     <% }else{ %>
-                        <a class="button" href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/quiz">Start Now</a>
+                        <a class="button" href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/courses">Start Now</a>
                     <% } %>
                 <% } %>
             </div>

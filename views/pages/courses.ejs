@@ -5,19 +5,40 @@
 <%- include('../includes/navigation.ejs') %>
 
 <div class="courses-container">
+    <h1>Courses</h1>
     <% courses.forEach(course => { %>
         <div class="course">
             <h2><%= course.name %></h2>
             <p><%= course.description %></p>
+            <p>Range: <%= course.range %>%</p>
             <div class="progress-bar">
                 <div class="progress" style="width: <%= course.range %>%;"></div>
             </div>
-            <p>Range: <%= course.range %>%</p>
             <a href="/<%= user.role.toLowerCase() %>/course_content/<%= course._id %>" class="button">Course Content</a>
         </div>
     <% }); %>
 </div>
-
+<div class="add-course-container">
+    <h1>Add New Session</h1>
+    <form action="/<%= user.role.toLowerCase() %>/courses" method="post">
+        <div class="form-group">
+            <label for="name">Course Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="range">Range</label>
+            <input type="number" id="range" name="range">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="button" type="submit">Add Course</button>
+        </div>
+    </form>
+</div>
 <%- include('../includes/footer.ejs') %>
 <%- include('../includes/end.ejs') %>
 </body>

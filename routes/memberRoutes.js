@@ -3,7 +3,7 @@ const memberController=require("../controllers/memberController");
 
 const router =express.Router();
 
-router.get("/dashboard");
+router.get("/dashboard",memberController.getDashboard);
 
 router.get("/book_session");
 

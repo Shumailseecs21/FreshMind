@@ -11,8 +11,9 @@ exports.getDashboard = async (req, res, next) => {
         const courses = await Course.find();
         // Fetch all sessions
         const sessions = await DoctorSession.find();
-
-        res.render('admin/dashboard', { users, courses, sessions });
+        const allMembers = users.filter(user => user.role === 'Member');
+        const allDoctors = users.filter(user => user.role === 'Doctor');
+        res.render('pages/dashboard', { user:req.user,users, courses, sessions ,allMembers,allDoctors,allCourses:courses,allSessions:sessions});
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

@@ -63,11 +63,9 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-console.log("okkk");
 app.use(
     multer({storage:fileStorage}).single("certifications")
 );
-console.log("okkk");
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images",express.static(path.join(__dirname, "images")));
 

@@ -108,7 +108,7 @@ exports.login = async(req, res, next) => {
                 req.session.isLoggedIn = true;
                 req.session.user = user;
                 await req.session.save();
-                return res.redirect('/');
+                return res.redirect("/"+role.toLowerCase()+'/dashboard');
             }
             return res.status(422).render('auth/login', {
                 errorMessage: 'Invalid email or password.',

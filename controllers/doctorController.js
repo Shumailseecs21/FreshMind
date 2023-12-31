@@ -1,11 +1,11 @@
 // doctorController.js
 const DoctorSession = require('../models/doctorSessionModel');
 
-exports.doctorDashboard = async (req, res) => {
+exports.getDashboard = async (req, res) => {
     try {
         // Fetch all sessions for the logged-in doctor
         const sessions = await DoctorSession.find({ doctorId: req.user._id });
-        res.render('doctor/dashboard', { sessions });
+        res.render('pages/dashboard', { sessions ,user:req.user});
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

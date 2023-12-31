@@ -3,7 +3,7 @@ const User = require('../models/userModel');
 const Course = require('../models/courseModel');
 const DoctorSession = require('../models/doctorSessionModel');
 
-exports.memberDashboard = async (req, res) => {
+exports.getDashboard = async (req, res) => {
     try {
         // Fetch user details
         const user = await User.findById(req.user._id);
@@ -12,7 +12,7 @@ exports.memberDashboard = async (req, res) => {
         // Fetch all sessions for the logged-in member
         const sessions = await DoctorSession.find({ memberId: req.user._id });
 
-        res.render('member/dashboard', { user, courses, sessions });
+        res.render('pages/dashboard', { user, courses, sessions });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

@@ -113,7 +113,24 @@ select{
     transition: border 0.3s;
     background-color: var(--button-bg-col-hover);
 }
+.signup-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: 1px solid var(--button-bg-col);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
 
+}
+
+.signup-button:hover {
+    border: 1px solid var(--button-col);
+    transition: border 0.3s;
+    background-color: var(--button-bg-col-hover);
+}
 .user-message {
     margin: auto;
     border: 1px solid #4771fa;

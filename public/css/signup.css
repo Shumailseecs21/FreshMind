@@ -55,6 +55,25 @@ header {
     color: var(--heading-text);
     font-weight: bold;
 }
+.login-button {
+    background-color: var(--button-bg-col);
+    color: var(--button-col);
+    padding: 10px 20px;
+    border: 1px solid var(--button-bg-col);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-heading);
+
+}
+
+.login-button:hover {
+    border: 1px solid var(--button-col);
+    transition: border 0.3s;
+    background-color: var(--button-bg-col-hover);
+}
+
 
 .signup-container {
     position: absolute;

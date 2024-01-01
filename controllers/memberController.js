@@ -137,8 +137,8 @@ exports.getCourses=async(req,res)=>{
 }
 exports.getCoursesContent=async(req,res)=>{
     try {
-        const course=await Course.find({_id:req.param.courseId});
-
+        const course=await Course.findOne({_id:req.params.courseId}).populate("courseContent");
+        console.log(course.courseContent);
         res.render("pages/courseContent",{user:req.user,course,courseContent:course.courseContent});
     }catch (error){
         res.status(500).send('Internal Server Error');

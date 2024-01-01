@@ -12,12 +12,12 @@
     <% if (user.role === 'Doctor') { %>
         <div class="doctor-details">
             <h2>Your Sessions</h2>
-            <% user.docSessions.forEach(session => { %>
+            <% sessions.forEach(session => { %>
                 <div class="card">
                     <p>Session Name: <%= session.name %></p>
                     <p>Shift: <%= session.shift %></p>
                     <!-- Add more details as needed -->
-                    <button class="delete-button button">Delete</button>
+<!--                    <button class="delete-button button">Delete</button>-->
                 </div>
             <% }); %>
 <!--            <a href="/doctor/sessions" class="button">Manage Sessions</a>-->
@@ -26,6 +26,8 @@
             <h2>Your Certifications</h2>
             <div class="card">
                 <p>Certification Name: <%= user.certifications.name %></p>
+                <div id="pdfContainer">
+                    <iframe id="pdfViewer" src="<%= user.certifications.path %>" width="50%" height="300px"></iframe>
                 <!-- Add more details as needed -->
                 <!--<button class="delete-button button">Delete</button>-->
             </div>

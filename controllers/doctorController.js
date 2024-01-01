@@ -4,7 +4,7 @@ const DoctorSession = require('../models/doctorSessionModel');
 exports.getDashboard = async (req, res) => {
     try {
         // Fetch all sessions for the logged-in doctor
-        const sessions = await DoctorSession.find({ doctorId: req.user._id });
+        const sessions = await DoctorSession.find({ doctorId: req.user._id }).populate("doctorId");
         res.render('pages/dashboard', { sessions ,user:req.user});
     } catch (error) {
         console.error(error);

@@ -16,7 +16,6 @@
                 <ul>
                     <% chapter.content.forEach(contentItem => { %>
                         <li>
-                            <input type="checkbox" id="<%= contentItem.name + index %>" name="<%= contentItem.name + index %>" />
                             <label for="<%= contentItem.name + index %>">
                                 <img src="/images/<%= contentItem.type %>.png" alt="">
                                 <a href="<%= contentItem.href %>"><%= contentItem.name %></a>
@@ -30,9 +29,9 @@
     </div>
 </section>
 
+<% if(user.role==="Admin"){ %>
 <section id="Chapter">
     <!-- ... existing content ... -->
-
     <!-- Form for adding new content -->
     <div class="add-content-form">
         <h2>Add New Chapter</h2>
@@ -60,7 +59,7 @@
         </form>
     </div>
 </section>
-
+<% } %>
 <%- include('../includes/footer.ejs') %>
 
 <%- include('../includes/end.ejs') %>

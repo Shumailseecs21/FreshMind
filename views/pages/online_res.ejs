@@ -13,9 +13,11 @@
                 <p>Assess your mental well-being with our quiz. Gain insights into your current state and take steps towards improvement.</p>
                 <% if(isAuthenticated){ %>
                     <% if(!user) { %>
-                        <a href="/quiz" class="button">Take Quiz</a>
+                        <a href="/quiz" class="button" >Take Quiz</a>
                     <% }else{ %>
+                        <% if(user.role!=="Admin"){ %>
                         <a class="button" href="/<%=  user.role === 'Admin' ? 'admin' : 'member' %>/quiz">Take Quiz</a>
+                        <% } %>
                     <% } %>
                 <% } %>
             </div>

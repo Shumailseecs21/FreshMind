@@ -101,6 +101,11 @@ exports.login = async(req, res, next) => {
                 errorMessage: 'Invalid email or password.',
                 validationErrors: []
             });
+        }else if(user && user.role!==role){
+            return res.status(422).render('auth/login',{
+                errorMessage: 'Invalid credentials',
+                validationErrors: []
+            });
         }
         try{
             const doMatch=await bcrypt.compare(password, user.password);

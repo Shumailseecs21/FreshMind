@@ -15,12 +15,22 @@
                     <p>Shift: <%= session.shift %></p>
                     <p>Description: <%= session.description %></p>
                 </div>
+                <% if(user.role==="Member"){ %>
+                <form method="post" action="sessions/<%= session.doctorId %>/">
+                <div>
+                    <input type="hidden" name="sessionId" value="<%= session._id %>">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="button" type="submit">Add</button>
+                </div>
+                </form>
+                <% } %>
             </div>
         <% }); %>
     <% } else { %>
         <p>No sessions available.</p>
     <% } %>
 </div>
+<% if(user.role==="Doctor"){ %>
 <div class="add-session-container">
     <h1>Add New Session</h1>
     <form action="/<%= user.role.toLowerCase() %>/sessions" method="post" enctype="multipart/form-data">
@@ -49,5 +59,6 @@
         </div>
     </form>
 </div>
+<% } %>
 <%- include('../includes/footer.ejs') %>
 <%- include('../includes/end.ejs') %>

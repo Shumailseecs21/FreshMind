@@ -5,15 +5,15 @@ const router =express.Router();
 
 router.get("/dashboard",memberController.getDashboard);
 
-router.get("/book_session");
+router.get("/sessions",memberController.getSessions);
 
-router.get("/book_session/:doctorId");
+router.post("/sessions/:doctorId",memberController.postSession);
 
-router.post("/book_session/:doctorId");
+router.get("/courses",memberController.getCourses);
 
-router.get("/courses");
+router.get("/courses/:courseId",memberController.getCoursesContent);
 
-router.get("/courses/:courseId");
+router.post("/courses/:courseId",memberController.postCourses);
 
 router.get("/quiz",memberController.getQuiz);
 

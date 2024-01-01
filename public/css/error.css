@@ -20,16 +20,13 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: var(--font-body);
     color: var(--heading-text);
-    font-weight: bold;
 }
-
 /* Navbar Styles */
 header {
     background-color: var(--section-bg-col-1);
+
     padding: 10px 0;
 }
 
@@ -86,47 +83,13 @@ header {
     background-color: var(--button-bg-col-hover);
 }
 
-#Chapter{
-    margin: 40px;
-}
-.mainHeading{
-    color: #800000;
-    font-size: 44px;
-}
-
-
-
-.container1 h1{
-    color:#f74646;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.container1 li{
-    margin-left: 20px;
-    margin-bottom: 5px;
-    list-style: none;
-    font-size: 18px;
-}
-.container1 img{
-    width: 18px;
-}
-.container1 a{
-    text-decoration: none;
-    color: #684e8f;
-}
-
-.container1 a:hover{
-    color:#b085f1
-}
-
 .footer {
     background-color: var(--section-bg-col-1);
     text-align: center;
     padding: 20px 0;
     color: var(--heading-text);
     font-weight: bold;
-    margin: 50px 0 0 0;
+    margin-bottom: 0;
 }
 
 .contact h2 {
@@ -150,9 +113,10 @@ header {
     font-size: 24px;
 }
 
-.social-icons img {
-    width: 5%;
-    height: 5%;
+.social-icons img{
+    width:5%;
+    height:5%;
+
 }
 
 .button {
@@ -161,7 +125,7 @@ header {
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    border: 1px solid var(--button-bg-col);
+    border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -169,60 +133,9 @@ header {
     margin-top: 20px;
     font-family: var(--font-heading);
     color: var(--button-col);
-
 }
 
 .button:hover {
-    border: 1px solid var(--button-col);
-    transition: border 0.3s;
     background-color: var(--button-bg-col-hover);
 }
 
-
-@media (max-width: 768px) {
-    .social-icons img {
-        width: 10%;
-        height: 10%;
-    }
-}
-
-
-@media (max-width: 1024px) {
-}
-
-
-.add-course-container {
-    margin-top: 20px;
-    margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-}
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-
-input {
-    padding: 10px;
-    margin: 5px 0;
-    width: 90%;
-}
-textarea {
-    padding: 10px;
-    margin: 5px 0;
-    width: 90%;
-}
-
-select{
-    padding: 10px;
-    margin: 5px 0;
-    color: var(--heading-text);
-    width: 90%;
-}

@@ -1,5 +1,5 @@
 <%- include('../includes/head.ejs') %>
-<link rel="stylesheet" type="text/css" href="/css/course_content.css">
+<link rel="stylesheet" type="text/css" href="/css/courseContent.css">
 </head>
 <body>
 <%- include('../includes/navigation.ejs') %>
@@ -26,36 +26,7 @@
                 </ul>
             </div>
         <% }); %>
-            <script>
-                // Assuming courseContent is an array of chapters, each containing an array of content items
-                function calculateProgress(courseContent) {
-                    let totalContentItems = 0;
-                    let completedContentItems = 0;
 
-                    // Iterate through chapters and content items to count total and completed items
-                    courseContent.forEach(chapter => {
-                        totalContentItems += chapter.content.length;
-                        chapter.content.forEach(contentItem => {
-                            const checkboxId = contentItem.name + chapterIndex; // You need to determine the chapter index
-                            const checkbox = document.getElementById(checkboxId);
-
-                            if (checkbox && checkbox.checked) {
-                                completedContentItems += 1;
-                            }
-                        });
-                    });
-
-                    // Calculate the progress ratio
-                    const progressRatio = totalContentItems === 0 ? 0 : completedContentItems / totalContentItems;
-
-                    // Convert ratio to percentage and return
-                    const progressPercentage = Math.round(progressRatio * 100);
-                    return `${progressPercentage}%`;
-                }
-            </script>
-        <div class="progress-bar">
-            <div class="progress" style="width: <%= calculateProgress(courseContent) %>;"></div>
-        </div>
     </div>
 </section>
 
@@ -65,7 +36,7 @@
     <!-- Form for adding new content -->
     <div class="add-content-form">
         <h2>Add New Chapter</h2>
-        <form action="/add-content/<%= course._id %>" method="post">
+        <form action="/<%= user.role.toLowerCase() %>/courses/<%= course._id %>" method="post">
             <div class="form-group">
                 <label for="chapterName">Chapter Name:</label>
                 <input type="text" id="chapterName" name="chapterName" required>
@@ -76,11 +47,16 @@
             </div>
             <div class="form-group">
                 <label for="chapterType">Chapter Type:</label>
-                <input type="text" id="chapterType" name="chapterType" required>
+                <select id="chapterType" name="chapterType" required>
+                    <option value="book">Book</option>
+                    <option value="quiz">Quiz</option>
+                    <option value="video">Video</option>
+                </select>
+<!--                <input type="text" id="chapterType" name="chapterType" required>-->
             </div>
             <!-- Add other fields for content details as needed -->
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <button type="submit">Add Chapter</button>
+            <button class="button" type="submit">Add Chapter</button>
         </form>
     </div>
 </section>

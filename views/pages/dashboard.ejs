@@ -27,7 +27,7 @@
             <div class="card">
                 <p>Certification Name: <%= user.certifications.name %></p>
                 <!-- Add more details as needed -->
-                <button class="delete-button button">Delete</button>
+                <!--<button class="delete-button button">Delete</button>-->
             </div>
 <!--            <a href="/doctor/certifications" class="button">Manage Certifications</a>-->
         </div>
@@ -36,14 +36,14 @@
         <div class="member-details">
             <h2>Your Sessions</h2>
             <div>
-                <% user.docSessions.forEach(session => { %>
+                <% sessions.forEach(session => { %>
                     <p>Session Name: <%= session.name %></p>
                     <p>Shift: <%= session.shift %></p>
                     <!-- Add more details as needed -->
-                    <button class="delete-button button">Delete</button>
+                    <!--<button class="delete-button button">Delete</button>-->
                 <% }); %>
             </div>
-            <a href="/member/book_session" class="button">Book a Session</a>
+<!--            <a href="/member/book_session" class="button">Book a Session</a>-->
         </div>
         <div class="member-details">
             <h2>Your Enrolled Courses</h2>
@@ -51,7 +51,7 @@
                 <% user.courses.forEach(course => { %>
                     <p>Course Name: <%= course.name %></p>
                     <!-- Add more details as needed -->
-                <button class="delete-button button">Delete</button>
+                <!--<button class="delete-button button">Delete</button>-->
                 <% }); %>
             </div>
 <!--            <a href="/member/courses" class="button">View Courses</a>-->
@@ -67,7 +67,7 @@
                     <p>Doctor Name: <%= doctor.username %></p>
                     <p>Email: <%= doctor.email %></p>
                     <!-- Add more details as needed -->
-                    <button class="delete-button button">Delete</button>
+                    <!--<button class="delete-button button">Delete</button>-->
                 </div>
             <% }); %>
 <!--            <a href="/admin/members" class="button">Manage Doctors</a>-->
@@ -79,7 +79,7 @@
                     <p>Member Name: <%= member.username %></p>
                     <p>Email: <%= member.email %></p>
                     <!-- Add more details as needed -->
-                    <button class="delete-button button">Delete</button>
+                    <!--<button class="delete-button button">Delete</button>-->
                 </div>
             <% }); %>
 <!--            <a href="/admin/members" class="button">Manage Members</a>  -->
@@ -91,7 +91,7 @@
                 <% allCourses.forEach(course => { %>
                     <p>Course Name: <%= course.name %></p>
                     <!-- Add more details as needed -->
-                <button class="delete-button button">Delete</button>
+                <!--<button class="delete-button button">Delete</button>-->
                 <% }); %>
             </div>
 <!--            <a href="/admin/courses" class="button">Manage Courses</a>-->
@@ -103,7 +103,7 @@
                     <p>Session Name: <%= session.name %></p>
                     <p>Shift: <%= session.shift %></p>
                     <!-- Add more details as needed -->
-                <button class="delete-button button">Delete</button>
+                <!--<button class="delete-button button">Delete</button>-->
                 <% }); %>
             </div>
 <!--            <a href="/admin/sessions" class="button">Manage Sessions</a>-->
@@ -117,7 +117,7 @@
                     <div id="pdfContainer">
                         <iframe id="pdfViewer" src="<%= userE.certifications.path %>" width="50%" height="300px"></iframe>
                     <!-- Add more details as needed -->
-                <button class="delete-button button">Delete</button>
+                <!--<button class="delete-button button">Delete</button>-->
                 <% } %>
                 <% }); %>
             </div>

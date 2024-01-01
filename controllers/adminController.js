@@ -93,19 +93,51 @@ exports.getCourseContent = async (req, res) => {
             return res.status(404).send('Course not found');
         }
 
+            // Assuming courseContent is an array of chapters, each containing an array of content items
+
         // Render the course content page with the retrieved course data
-        res.render('pages/courseContent', { course,user:req.user,courseContent:course.courseContent });
+        res.render('pages/courseContent', {course, user: req.user, courseContent: course.courseContent});
     } catch (error) {
         console.error(error);
 
     }
 };
 
+exports.postCourseContent = async (req, res) => {
+    try {
+        // Extract form data from the request
+        const { chapterName, chapterHref, chapterType } = req.body;
+        const courseId = req.params.courseId; // Assuming the course ID is part of the route params
+
+        // Create a new course content
+        const newContent = new CourseContent({
+            content: {
+                name: chapterName,
+                href: chapterHref,
+                type: chapterType,
+            },
+        });
+        const savedContent = await newContent.save();
+        const course = await Course.findById(courseId);
+        course.courseContent.push(savedContent._id);
+
+        // Save the updated course data
+        await course.save();
+        const courses = await Course.find();
+        // Redirect or send a response as needed
+        res.render('pages/courses',{user:req.user,courses}); // Redirect to the user's dashboard after successful submission
+    } catch (error) {
+        // Handle errors, e.g., render an error page
+        console.error(error);
+        res.status(500).render('error', { error: 'Internal Server Error' });
+    }
+};
+
 exports.adminMembers = async (req, res) => {
     try {
         // Fetch all users with role 'Member'
-        const members = await User.find({ role: 'Member' });
-        res.render('admin/members', { members });
+        const members = await User.find({role: 'Member'});
+        res.render('admin/members', {members});
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

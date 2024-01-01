@@ -11,6 +11,8 @@ router.post("/courses/",adminController.postCourses);
 
 router.get("/courses/:courseId",adminController.getCourseContent);
 
+router.post("/courses/:courseId",adminController.postCourseContent);
+
 router.get("/sessions");
 
 router.get("/sessions/:sessionId");
